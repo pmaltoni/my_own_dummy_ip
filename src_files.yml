@@ -1,0 +1,12 @@
+wide_alu:
+  incdirs:
+    - /../register_interface/include
+    - /../register_interface/vendor/lowrisc_opentitan/include
+  files:
+    - fullstack_ip_integration/wide_alu_pkg.sv
+    - fullstack_ip_integration/wide_alu.sv
+    - fullstack_ip_integration/wide_alu_top.sv
+    - fullstack_ip_integration/sv/wide_alu_reg_top.sv
+    - fullstack_ip_integration/sv/wide_alu_reg_pkg.sv
+  vlog_opts:
+    - -L register_interface_lib

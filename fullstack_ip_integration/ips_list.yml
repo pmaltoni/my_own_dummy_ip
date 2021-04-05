@@ -1,6 +1,0 @@
-axi:
-  commit: v0.27.1
-  domain: [cluster, soc]
-register_interface:
-  commit: v0.2.1
-  domain: [soc]
