@@ -1,4 +1,4 @@
-wide_alu:
+my_own_dummy_ip:
   incdirs:
     - /../register_interface/include
     - /../register_interface/vendor/lowrisc_opentitan/include
