@@ -20,7 +20,7 @@ module wide_alu_top
    import wide_alu_reg_pkg::wide_alu_hw2reg_t;
    
    //Wiring signal (protocol converter between axi and ggeneric register interface)
-   REG_BUS #(.ADDR_WIDTH(32), DATA_WIDTH(32)) axi_to_regfile();
+   REG_BUS #(.ADDR_WIDTH(32), .DATA_WIDTH(32)) axi_to_regfile();
    wide_alu_reg2hw_t reg_file_to_ip;
    wide_alu_hw2reg_t ip_to_reg_file;
    
@@ -33,7 +33,7 @@ module wide_alu_top
                      .DECOUPLE_W(0)
    ) i_axi2reg (
                 .clk_i,
-                .rstn_i,
+                .rst_ni,
                 .testnode_i(test_node_i),
                 .in(axi_slave),
                 .reg_o(axi_to_regfile)
@@ -71,12 +71,11 @@ module wide_alu_top
                  );
    wide_alu i_wide_alu (
                         .clk_i,
-                        .res_ni,
+                        .rst_ni,
                         .trigger_i(reg_file_to_ip.ctrl1.trigger.q & reg_file_to_ip.ctrl1.trigger.qe),
                         .clear_err_i(reg_file_to_ip.ctrl1.clear_err.q & reg_file_to_ip.ctrl1.clear_err.qe),
                         .op_a_i(reg_file_to_ip.op_a),
                         .op_b_i(reg_file_to_ip.op_b),
-                        .result_o(ip_to_reg_file.result),
                         .deaccel_factor_we_i(reg_file_to_ip.ctrl2.delay.qe),
                         .deaccel_factor_i(reg_file_to_ip.ctrl2.delay.q),
                         .deaccel_factor_o(ip_to_reg_file.ctrl2.delay.d),
