@@ -34,7 +34,7 @@ module wide_alu_top
    ) i_axi2reg (
                 .clk_i,
                 .rst_ni,
-                .testnode_i(test_node_i),
+                .testmode_i(test_mode_i),
                 .in(axi_slave),
                 .reg_o(axi_to_regfile)
                 );
