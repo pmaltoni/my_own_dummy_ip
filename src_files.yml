@@ -1,13 +1,15 @@
 my_own_dummy_ip:
   incdirs:
-    /../register_interface/include,
-    /../register_interface/vendor/lowrisc_opentitan/include,
-    /../common_cells/include,
+    - /../register_interface/include
+    - /../register_interface/vendor/lowrisc_opentitan/include
+    - /../common_cells/include
   files:
-    gen_sv/wide_alu_reg_pkg.sv,
-    gen_sv/wide_alu_reg_top.sv,
-    fullstack_ip_integration/wide_alu_pkg.sv,
-    fullstack_ip_integration/wide_alu.sv,
-    fullstack_ip_integration/wide_alu_top.sv,
+    - gen_sv/wide_alu_reg_pkg.sv
+    - gen_sv/wide_alu_reg_top.sv
+    - fullstack_ip_integration/wide_alu_pkg.sv
+    - fullstack_ip_integration/wide_alu.sv
+    - fullstack_ip_integration/wide_alu_top.sv
   vlog_opts:
-    -L register_interface_lib,
+    - -L register_interface_lib
+
+
