@@ -19,7 +19,7 @@ module wide_alu_top
    import wide_alu_reg_pkg::wide_alu_reg2hw_t;
    import wide_alu_reg_pkg::wide_alu_hw2reg_t;
    
-   //Wiring signal (protocol converter between axi and ggeneric register interface)
+   //Wiring signal (protocol converter between axi and generic register interface)
    REG_BUS #(.ADDR_WIDTH(32), .DATA_WIDTH(32)) axi_to_regfile();
    wide_alu_reg2hw_t reg_file_to_ip;
    wide_alu_hw2reg_t ip_to_reg_file;
