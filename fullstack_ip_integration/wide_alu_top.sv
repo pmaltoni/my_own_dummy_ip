@@ -19,7 +19,7 @@ module wide_alu_top  #(
    import wide_alu_reg_pkg::wide_alu_hw2reg_t;
    
    //Wiring signal (protocol converter between axi and generic register interface)
-   REG_BUS #(.ADDR_WIDTH(32), .DATA_WIDTH(32)) axi_to_regfile();
+   REG_BUS #(.ADDR_WIDTH(32), .DATA_WIDTH(32)) axi_to_regfile(.clk_i);
    wide_alu_reg2hw_t reg_file_to_ip;
    wide_alu_hw2reg_t ip_to_reg_file;
    
@@ -58,7 +58,7 @@ module wide_alu_top  #(
     ) i_regfile (
                  .clk_i,
                  .rst_ni,
-                 .devnode_i(1'b1),
+                 .devmode_i(1'b1),
 
                  //from the protocol convert to the registers file
                  .reg_req_i(to_reg_file_req),
